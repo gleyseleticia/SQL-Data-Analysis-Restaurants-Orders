@@ -104,7 +104,7 @@ HAVING num_items>12) AS num_items;
 
 1. What were the least and most ordered items? What categories were they in?
 - The least ordered item: Chicken Tacos - Mexican - ordered 123 times
-``sql
+```sql
 SELECT item_name, category, COUNT(item_id) AS num_orders
 FROM order_details
 CROSS JOIN menu_items
@@ -115,6 +115,7 @@ LIMIT 1;
 ```
 
 - The most ordered item: Hamburger - American - ordered 622 times
+
 ```sql
 SELECT item_name, category, COUNT(item_id) AS num_orders
 FROM order_details
@@ -124,6 +125,7 @@ GROUP BY item_name
 ORDER BY num_orders DESC
 LIMIT 1;
 ```
+
 2. What were the top 5 orders that spent the most money?
 
 - order_id | total_spend 
@@ -132,6 +134,7 @@ LIMIT 1;
 1957 - $190.10;
 330 - $189.70;
 2675 - $185.10;
+  
 ```sql
 SELECT order_id, SUM(price) AS total_spend
 FROM order_details
@@ -141,6 +144,7 @@ GROUP BY order_id
 ORDER BY total_spend DESC
 LIMIT 5;
 ```
+
 3. View the details of the highest spend order. Which specific items were purchased?
 
 Steak Tacos - Mexican - $13.95;
